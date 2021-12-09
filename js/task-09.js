@@ -6,12 +6,17 @@ const refs = {
   spanEl: document.querySelector('.color'),
 };
 
+refs.buttonEl.addEventListener('click', onChangeColorBody);
 function onChangeColorBody () {
   document.body.style.backgroundColor = getRandomHexColor();
-};
-function onWriteSpanColorBody () {
   refs.spanEl.textContent = getRandomHexColor();
 };
 
-refs.buttonEl.addEventListener('click', onChangeColorBody);
-refs.buttonEl.addEventListener('click', onWriteSpanColorBody);
+// function onChangeColorBody () {
+//   document.body.style.backgroundColor = getRandomHexColor();
+// };
+// function onWriteSpanColorBody () {
+//   refs.spanEl.textContent = getRandomHexColor();
+// };
+// refs.buttonEl.addEventListener('click', onChangeColorBody);
+// refs.buttonEl.addEventListener('click', onWriteSpanColorBody);

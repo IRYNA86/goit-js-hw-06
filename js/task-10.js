@@ -7,17 +7,34 @@ const refs = {
   buttonDestroy: document.querySelector('#controls button + button'),
   divNew: document.querySelector('#boxes'),
 };
-refs.inputEl.addEventListener('input', createBoxes);
-function createBoxes (amount) {
-  const inputElNumber = amount.target.value;
+let sizeDiv = 30;
+
+refs.buttonCreate.addEventListener('click', createBoxes);
+
+function createBoxes () {
+ 
+    const inputElNumber = refs.inputEl.value;
+  
+  
   console.log(inputElNumber);
   const createDiv = document.createElement('div');
-  createDiv.style.width = '30px';
-  createDiv.style.height = '30px';
-  console.log(createDiv);
+  createDiv.style.width = `${sizeDiv}px`;
+  createDiv.style.height = `${sizeDiv}px`;
+  sizeDiv += 10;
+  createDiv.classList.add('create')
   refs.divNew.prepend(createDiv);
-};
-function onChangeColorNewDiv () {
-  createDiv.style.backgroundColor = getRandomHexColor();
-};
+
+  createDiv.style.backgroundColor = `${getRandomHexColor()}`;
 console.log(createDiv);
+  
+
+};
+
+  
+
+ 
+const destroyBoxes = () => { refs.divNew.innerHTML = ' '; };
+refs.buttonDestroy.addEventListener('click', destroyBoxes)
+
+
+ 
